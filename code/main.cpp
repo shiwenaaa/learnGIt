@@ -48,7 +48,7 @@ int score = 0;			//分数
 int maxscore = 0;		//历史最高分
 int myrank = 1;			//游戏难度初始为1
 bool stop = false;
-//int colornum = 0;		//颜色
+int colornum = 0;		//颜色
 
 // 单个网格大小
 int tile_width = 33;
@@ -250,12 +250,12 @@ void newtile()
 
 	updatetile();
 
-	//colornum = rand() % 7;
+	colornum = rand() % 7;
 	// 给新方块赋上颜色
 	glm::vec4 newcolours[24];
 	for (int i = 0; i < 24; i++)
-		newcolours[i] = colors[shapenum];
-		//newcolours[i] = colors[colornum];
+		//newcolours[i] = colors[shapenum];
+		newcolours[i] = colors[colornum];
 
 	glBindBuffer(GL_ARRAY_BUFFER, vbo[5]);
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(newcolours), newcolours);
@@ -525,8 +525,8 @@ void settile()
 		// 将格子对应在棋盘格上的位置设置为填充
 		board[x][y] = true;
 		// 并将相应位置的颜色修改
-		changecellcolour(glm::vec2(x, y), colors[shapenum]);
-		//changecellcolour(glm::vec2(x, y), colors[colornum]);
+		//changecellcolour(glm::vec2(x, y), colors[shapenum]);
+		changecellcolour(glm::vec2(x, y), colors[colornum]);
 
 	}
 
