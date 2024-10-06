@@ -222,12 +222,12 @@ void newtile()
 
 	srand(static_cast<unsigned int>(time(0)));//设置随机种子
 	shapenum = rand() % 7;	//随机产生类型
-	//rotation = rand() % 4;	//随机产生方向
+	rotation = rand() % 4;	//随机产生方向
 	for (int i = 0; i < 4; i++)
 	{
 		//cout << shapenum << "  " << rotation << endl;
 		//tile[i] = allRotationsLshape[shapenum][rotation][i];
-		tile[i] = allRotationsLshape[shapenum][0][i];
+		tile[i] = allRotationsLshape[shapenum][rotation][i];
 		//检测是否有位置放置新方块
 	if (!checkvalid(tile[i] + tilepos) && flag == 1) {
 		gameover = true;
